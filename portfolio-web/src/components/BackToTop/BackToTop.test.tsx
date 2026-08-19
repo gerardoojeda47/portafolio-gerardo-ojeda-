@@ -6,7 +6,7 @@
  * Validates: Requirements 11.4
  */
 
-import { describe, it, expect, afterEach, vi, beforeEach } from 'vitest'
+import { describe, it, expect, afterEach, vi } from 'vitest'
 import { render, cleanup, act } from '@testing-library/react'
 import { BackToTop } from './BackToTop'
 
