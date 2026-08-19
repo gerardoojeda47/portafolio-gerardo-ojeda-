@@ -1,0 +1,131 @@
+/* ============================================================
+   TerminalWindow.css — Animated terminal component
+   Dark Tech palette via CSS custom properties from global.css
+   ============================================================ */
+
+/* ── Container ───────────────────────────────────────────── */
+
+.terminal-window {
+  width: 100%;
+  max-width: 560px;
+  min-height: 220px;
+  overflow: hidden;
+  /* glass-card provides background, blur, border, shadow */
+}
+
+/* ── Title bar (traffic lights row) ─────────────────────── */
+
+.terminal-window__titlebar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.terminal-window__dot {
+  width: 12px;
+  height: 12px;
+  border-radius: var(--radius-full);
+  flex-shrink: 0;
+}
+
+.terminal-window__dot--red    { background: #ff5f57; }
+.terminal-window__dot--yellow { background: #ffbd2e; }
+.terminal-window__dot--green  { background: #28c840; }
+
+.terminal-window__title {
+  margin-left: 8px;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+}
+
+/* ── Body ────────────────────────────────────────────────── */
+
+.terminal-window__body {
+  padding: var(--spacing-md) var(--spacing-lg);
+  min-height: 160px;
+  overflow-y: auto;
+  /* subtle scrollbar styling already defined in global.css */
+}
+
+/* ── Lines ───────────────────────────────────────────────── */
+
+.terminal-window__line {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: 1.8;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.terminal-window__line--cmd {
+  color: var(--text-primary);
+  margin-top: 6px;
+}
+
+.terminal-window__line--cmd:first-child {
+  margin-top: 0;
+}
+
+.terminal-window__line--out {
+  color: var(--accent-cyan);
+  padding-left: 0; /* aligned under prompt visually via spacing */
+  margin-left: 0;
+}
+
+/* ── Prompt ──────────────────────────────────────────────── */
+
+.terminal-window__prompt {
+  white-space: pre;
+  user-select: none;
+  flex-shrink: 0;
+}
+
+.terminal-window__prompt-user {
+  color: var(--accent-blue);
+  font-weight: 500;
+}
+
+.terminal-window__prompt-sep {
+  color: var(--text-muted);
+}
+
+.terminal-window__prompt-host {
+  color: var(--accent-violet);
+  font-weight: 500;
+}
+
+/* ── Text ────────────────────────────────────────────────── */
+
+.terminal-window__text {
+  /* inherits line color */
+}
+
+/* ── Blinking cursor ─────────────────────────────────────── */
+
+.terminal-window__cursor {
+  display: inline-block;
+  color: var(--accent-cyan);
+  font-weight: 700;
+  line-height: 1;
+  /* No CSS animation needed — toggled via React state */
+}
+
+/* ── Responsive ──────────────────────────────────────────── */
+
+@media (max-width: 480px) {
+  .terminal-window__body {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+
+  .terminal-window__line {
+    font-size: var(--text-xs);
+  }
+}

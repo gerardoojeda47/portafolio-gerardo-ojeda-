@@ -1,0 +1,79 @@
+/* GitHubSection.css — Validates: Requirements 3.2 */
+
+.github-section__header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.github-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  padding: var(--spacing-xl);
+  max-width: 640px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+@media (min-width: 640px) {
+  .github-card {
+    padding: var(--spacing-2xl);
+    gap: var(--spacing-xl);
+    flex-direction: row;
+    text-align: left;
+  }
+}
+
+.github-card__icon {
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 4.5rem;
+  height: 4.5rem;
+  border-radius: var(--radius-lg);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid var(--border-accent);
+  color: var(--accent-blue);
+  box-shadow: var(--shadow-glow-blue);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.github-card:hover .github-card__icon {
+  box-shadow: 0 0 32px rgba(0, 212, 255, 0.45);
+  border-color: var(--border-glow);
+}
+
+.github-card__body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  flex: 1;
+  min-width: 0;
+}
+
+.github-card__username {
+  font-size: clamp(var(--text-md), 2.5vw, var(--text-lg));
+  color: var(--accent-blue);
+  font-weight: 600;
+  max-width: none;
+  overflow-wrap: break-word;
+  word-break: break-all;
+}
+
+.github-card__description {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  max-width: 40ch;
+}
+
+.github-card__cta {
+  flex-shrink: 0;
+  align-self: center;
+}
+
+@media (min-width: 640px) {
+  .github-card__cta {
+    align-self: auto;
+  }
+}

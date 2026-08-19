@@ -1,0 +1,101 @@
+/* Contact.css — Validates: Requirements 11.1, 11.2 */
+
+.contact {
+  background: linear-gradient(
+    180deg,
+    var(--bg-base) 0%,
+    rgba(15, 15, 26, 0.95) 50%,
+    var(--bg-surface) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.contact::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at 50% 100%,
+    rgba(0, 212, 255, 0.08) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+}
+
+.contact .container {
+  position: relative;
+  z-index: 1;
+}
+
+.contact__header {
+  text-align: center;
+  margin-bottom: var(--spacing-2xl);
+}
+
+.contact__headline {
+  font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.contact__subtext {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  max-width: 50ch;
+  margin-inline: auto;
+}
+
+.contact__buttons {
+  display: grid;
+  gap: var(--spacing-lg);
+  max-width: 48rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .contact__buttons {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.contact-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-xl);
+  text-align: center;
+  text-decoration: none;
+  color: var(--text-primary);
+}
+
+.contact-btn:hover {
+  color: var(--accent-cyan);
+}
+
+.contact-btn__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid var(--border-accent);
+  color: var(--accent-blue);
+}
+
+.contact-btn__label {
+  font-weight: 700;
+  font-size: var(--text-md);
+}
+
+.contact-btn__display {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+}
+
+.contact-btn:hover .contact-btn__display {
+  color: var(--accent-cyan);
+}

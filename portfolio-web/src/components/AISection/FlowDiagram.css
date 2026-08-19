@@ -1,0 +1,198 @@
+/* =============================================
+   FlowDiagram.css — AI Section Flow Diagram
+   Dark Tech Design System
+   ============================================= */
+
+.flow-diagram {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  padding: var(--spacing-xl) var(--spacing-lg);
+  width: 100%;
+}
+
+/* Each step = node + optional arrow */
+.flow-diagram__step {
+  display: flex;
+  align-items: center;
+  gap: 0;
+}
+
+/* ── Node ────────────────────────────────────── */
+
+.flow-diagram__node {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 7rem;
+  height: 3.25rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border-subtle);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-card);
+  cursor: default;
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.flow-diagram__node::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.06;
+  border-radius: inherit;
+  transition: opacity var(--transition-base);
+}
+
+.flow-diagram__node:hover {
+  transform: translateY(-3px);
+}
+
+/* Colour variants */
+.flow-diagram__node--blue {
+  border-color: var(--border-accent);
+  box-shadow: var(--shadow-card), 0 0 12px rgba(0, 212, 255, 0.12);
+}
+
+.flow-diagram__node--blue::before {
+  background: var(--accent-blue);
+  opacity: 0.08;
+}
+
+.flow-diagram__node--blue:hover {
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-lift), var(--shadow-glow-blue);
+}
+
+.flow-diagram__node--cyan {
+  border-color: rgba(0, 255, 204, 0.30);
+  box-shadow: var(--shadow-card), 0 0 12px rgba(0, 255, 204, 0.10);
+}
+
+.flow-diagram__node--cyan::before {
+  background: var(--accent-cyan);
+  opacity: 0.08;
+}
+
+.flow-diagram__node--cyan:hover {
+  border-color: rgba(0, 255, 204, 0.55);
+  box-shadow: var(--shadow-lift), 0 0 20px rgba(0, 255, 204, 0.25);
+}
+
+.flow-diagram__node--violet {
+  border-color: rgba(139, 92, 246, 0.30);
+  box-shadow: var(--shadow-card), 0 0 12px rgba(139, 92, 246, 0.10);
+}
+
+.flow-diagram__node--violet::before {
+  background: var(--accent-violet);
+  opacity: 0.08;
+}
+
+.flow-diagram__node--violet:hover {
+  border-color: rgba(139, 92, 246, 0.55);
+  box-shadow: var(--shadow-lift), var(--shadow-glow-violet);
+}
+
+/* Node label text */
+.flow-diagram__node-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  position: relative;
+  z-index: 1;
+}
+
+.flow-diagram__node--blue  .flow-diagram__node-label { color: var(--accent-blue);   }
+.flow-diagram__node--cyan  .flow-diagram__node-label { color: var(--accent-cyan);   }
+.flow-diagram__node--violet .flow-diagram__node-label { color: var(--accent-violet); }
+
+/* ── Arrow connector ─────────────────────────── */
+
+.flow-diagram__arrow {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  transform-origin: left center;
+  padding: 0 0.35rem;
+}
+
+.flow-diagram__arrow-line {
+  display: block;
+  width: 1.5rem;
+  height: 1.5px;
+  background: var(--border-accent);
+  opacity: 0.6;
+}
+
+.flow-diagram__arrow-head {
+  font-size: 1.1rem;
+  line-height: 1;
+  color: var(--accent-blue);
+  opacity: 0.7;
+  margin-left: -2px;
+}
+
+/* ── Responsive ─────────────────────────────── */
+
+@media (max-width: 767px) {
+  .flow-diagram {
+    gap: var(--spacing-sm);
+  }
+
+  .flow-diagram__node {
+    width: 5.5rem;
+    height: 2.75rem;
+  }
+
+  .flow-diagram__node-label {
+    font-size: 0.65rem;
+  }
+
+  .flow-diagram__arrow-line {
+    width: 0.85rem;
+  }
+
+  .flow-diagram__arrow {
+    padding: 0 0.15rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .flow-diagram {
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+  }
+
+  .flow-diagram__step {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .flow-diagram__arrow {
+    flex-direction: column;
+    padding: 0.15rem 0;
+  }
+
+  .flow-diagram__arrow-line {
+    width: 1.5px;
+    height: 1rem;
+  }
+
+  .flow-diagram__arrow-head {
+    transform: rotate(90deg);
+    font-size: 0.9rem;
+  }
+}

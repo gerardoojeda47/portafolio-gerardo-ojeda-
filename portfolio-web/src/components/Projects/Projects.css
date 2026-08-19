@@ -1,0 +1,132 @@
+/* Projects.css — Validates: Requirements 7.1–7.5 */
+
+.projects {
+  background: var(--bg-surface);
+}
+
+.projects__grid {
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+@media (min-width: 1024px) {
+  .projects__grid {
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+  }
+}
+
+.project-card {
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-lg);
+}
+
+.project-card__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.project-card__title-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--spacing-sm);
+  justify-content: space-between;
+}
+
+.project-card__title {
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+}
+
+.project-card__context {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--accent-violet);
+  letter-spacing: 0.05em;
+}
+
+.project-card__description {
+  color: var(--text-secondary);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+.project-card__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.project-card__tech-chip {
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid var(--border-subtle);
+  font-size: var(--text-xs);
+  color: var(--accent-cyan);
+}
+
+.project-card__features {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.project-card__features li {
+  position: relative;
+  padding-left: 1.25rem;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.project-card__features li::before {
+  content: '▸';
+  position: absolute;
+  left: 0;
+  color: var(--accent-blue);
+  font-family: var(--font-mono);
+}
+
+.project-card__diagram {
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+.project-card__diagram-header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  padding: var(--spacing-sm) var(--spacing-md);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--accent-blue);
+  border-bottom: 1px solid var(--border-subtle);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.project-card__diagram-code {
+  padding: var(--spacing-md);
+  font-size: 0.65rem;
+  line-height: 1.5;
+  color: var(--accent-cyan);
+  overflow-x: auto;
+  white-space: pre;
+}
+
+.project-card__links {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-top: auto;
+}
+
+.project-card__link {
+  font-size: var(--text-xs);
+  padding: 0.4rem 0.9rem;
+}

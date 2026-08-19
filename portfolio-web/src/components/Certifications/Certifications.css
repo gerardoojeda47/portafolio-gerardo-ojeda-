@@ -1,0 +1,119 @@
+/* Certifications.css — Validates: Requirements 10.1–10.4 */
+
+.certifications__education {
+  display: grid;
+  gap: var(--spacing-lg);
+  margin-bottom: var(--spacing-2xl);
+}
+
+@media (min-width: 768px) {
+  .certifications__education {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.education-card {
+  padding: var(--spacing-xl);
+  display: flex;
+  gap: var(--spacing-md);
+  align-items: flex-start;
+}
+
+.education-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-md);
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid var(--border-accent);
+  color: var(--accent-blue);
+  flex-shrink: 0;
+}
+
+.education-card__degree {
+  font-size: var(--text-md);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.education-card__institution {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.education-card__date {
+  font-size: var(--text-xs);
+  color: var(--accent-cyan);
+}
+
+.certifications__sub-title {
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+}
+
+.certifications__grid {
+  display: grid;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 768px) {
+  .certifications__grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .certifications__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.cert-card {
+  padding: var(--spacing-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+  transition:
+    border-color var(--transition-base),
+    box-shadow var(--transition-base),
+    transform var(--transition-base);
+}
+
+.cert-card:hover {
+  border-color: var(--border-glow);
+  box-shadow: var(--shadow-lift), var(--shadow-glow-violet);
+}
+
+.cert-card__icon {
+  color: var(--accent-violet);
+}
+
+.cert-card__title {
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+  line-height: 1.4;
+}
+
+.cert-card__issuer {
+  font-size: var(--text-xs);
+  color: var(--accent-blue);
+  font-weight: 600;
+}
+
+.cert-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+  margin-top: auto;
+}
+
+.cert-card:hover .cert-card__issuer,
+.cert-card:hover .cert-card__meta {
+  color: var(--accent-cyan);
+}

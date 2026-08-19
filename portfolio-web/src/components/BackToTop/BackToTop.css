@@ -1,0 +1,34 @@
+/* BackToTop.css — Validates: Requirements 11.4 */
+
+.back-to-top {
+  position: fixed;
+  bottom: 1.5rem;
+  right: 1.5rem;
+  z-index: var(--z-top);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-full);
+  background: var(--bg-glass);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-accent);
+  color: var(--accent-blue);
+  box-shadow: var(--shadow-glow-blue);
+  transition:
+    background-color var(--transition-base),
+    color var(--transition-base),
+    transform var(--transition-fast);
+}
+
+.back-to-top:hover {
+  background: rgba(0, 212, 255, 0.15);
+  color: var(--accent-cyan);
+  transform: translateY(-2px);
+}
+
+.back-to-top:active {
+  transform: scale(0.95);
+}

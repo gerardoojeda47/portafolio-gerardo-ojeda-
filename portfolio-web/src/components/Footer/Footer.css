@@ -1,0 +1,47 @@
+/* Footer.css — Validates: Requirements 11.3 */
+
+.footer {
+  padding-block: var(--spacing-2xl);
+  border-top: 1px solid var(--border-subtle);
+  background: var(--bg-base);
+}
+
+.footer__inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--spacing-lg);
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer__inner {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
+}
+
+.footer__name {
+  font-size: var(--text-sm);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer__title {
+  font-size: var(--text-sm);
+  color: var(--accent-blue);
+  margin-bottom: var(--spacing-xs);
+}
+
+.footer__stack {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.footer__copyright {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}

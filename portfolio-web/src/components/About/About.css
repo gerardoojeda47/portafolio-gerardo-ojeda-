@@ -1,0 +1,145 @@
+/* =============================================
+   About.css — About Me section styles
+   ============================================= */
+
+/* ── Section wrapper ── */
+.about {
+  background-color: var(--bg-surface);
+}
+
+/* ── Header ── */
+.about__header {
+  margin-bottom: var(--spacing-2xl);
+}
+
+.about__title {
+  font-size: clamp(var(--text-2xl), 4vw, var(--text-4xl));
+}
+
+/* ── Intro: bio + tier legend ── */
+.about__intro {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+@media (min-width: 768px) {
+  .about__intro {
+    grid-template-columns: 1fr auto;
+    align-items: start;
+    gap: var(--spacing-xl);
+  }
+}
+
+/* ── Bio text ── */
+.about__bio-text {
+  font-size: var(--text-lg);
+  color: var(--text-secondary);
+  line-height: 1.75;
+  max-width: 65ch;
+}
+
+/* ── Tier legend ── */
+.about__tiers {
+  flex-shrink: 0;
+}
+
+.about__tiers-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: var(--spacing-md);
+  max-width: unset;
+}
+
+.about__tiers-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.about__tiers-list li {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.about__tier-desc {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  white-space: nowrap;
+}
+
+/* ── Strengths heading ── */
+.about__strengths-header {
+  margin-bottom: var(--spacing-xl);
+}
+
+.about__strengths-title {
+  font-size: clamp(var(--text-xl), 3vw, var(--text-3xl));
+}
+
+/* ── Strengths grid — 6 cards ── */
+.about__strengths-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: var(--spacing-lg);
+}
+
+@media (min-width: 480px) {
+  .about__strengths-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .about__strengths-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ── Strength card ── */
+.about__strength-card {
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+  height: 100%;
+}
+
+.about__strength-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-md);
+  background: rgba(0, 212, 255, 0.08);
+  border: 1px solid rgba(0, 212, 255, 0.18);
+  color: var(--accent-blue);
+  flex-shrink: 0;
+  transition: background var(--transition-base), border-color var(--transition-base);
+}
+
+.about__strength-card:hover .about__strength-icon {
+  background: rgba(0, 212, 255, 0.15);
+  border-color: var(--border-glow);
+}
+
+.about__strength-title {
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 0;
+}
+
+.about__strength-desc {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.65;
+  max-width: unset;
+  margin: 0;
+}

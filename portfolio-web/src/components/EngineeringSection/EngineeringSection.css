@@ -1,0 +1,51 @@
+/* EngineeringSection.css — Validates: Requirements 8.1–8.5 */
+
+.engineering__grid {
+  display: grid;
+  gap: var(--spacing-xl);
+}
+
+@media (min-width: 768px) {
+  .engineering__grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.engineering-card {
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.engineering-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: var(--radius-md);
+  background: rgba(0, 212, 255, 0.1);
+  border: 1px solid var(--border-accent);
+  color: var(--accent-blue);
+}
+
+.engineering-card__title {
+  font-size: var(--text-lg);
+  color: var(--text-primary);
+}
+
+.engineering-card__skills {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-sm);
+}
+
+.engineering-card__skill {
+  font-size: var(--text-xs);
+  color: var(--text-secondary);
+  padding: 0.35rem 0.65rem;
+  border-radius: var(--radius-sm);
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+}

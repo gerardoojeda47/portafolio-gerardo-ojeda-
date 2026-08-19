@@ -1,0 +1,201 @@
+/* =============================================
+   AISection.css — AI & Automation Section
+   Dark Tech Design System
+   ============================================= */
+
+/* ── Section base ────────────────────────────── */
+
+.aisection {
+  background: var(--bg-surface);
+}
+
+/* ── Header ──────────────────────────────────── */
+
+.aisection__header {
+  margin-bottom: var(--spacing-2xl);
+  max-width: 60ch;
+}
+
+/* ── Flow Diagram wrapper ─────────────────────── */
+
+.aisection__diagram-wrapper {
+  margin-bottom: var(--spacing-2xl);
+  padding: var(--spacing-xl);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-card);
+  overflow-x: auto;
+}
+
+.aisection__diagram-label {
+  text-align: center;
+  margin-bottom: var(--spacing-md);
+}
+
+/* ── Featured quote ──────────────────────────── */
+
+.aisection__quote {
+  position: relative;
+  margin: 0 auto var(--spacing-2xl);
+  max-width: 72ch;
+  padding: var(--spacing-xl) var(--spacing-2xl);
+  background: linear-gradient(
+    135deg,
+    rgba(0, 212, 255, 0.06) 0%,
+    rgba(139, 92, 246, 0.06) 100%
+  );
+  border: 1.5px solid var(--border-accent);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-glow-blue);
+
+  font-family: var(--font-body);
+  font-size: clamp(var(--text-lg), 2.5vw, var(--text-2xl));
+  font-weight: 600;
+  color: var(--text-primary);
+  line-height: 1.5;
+  text-align: center;
+}
+
+.aisection__quote-mark {
+  font-family: Georgia, serif;
+  font-size: 3rem;
+  line-height: 0;
+  vertical-align: -0.55em;
+  color: var(--accent-blue);
+  opacity: 0.5;
+  margin: 0 0.15em;
+  user-select: none;
+}
+
+/* ── Two-column body ─────────────────────────── */
+
+.aisection__body {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-2xl);
+  align-items: start;
+}
+
+/* ── Sub-titles ──────────────────────────────── */
+
+.aisection__sub-title {
+  font-size: var(--text-xl);
+  color: var(--text-primary);
+  margin-bottom: var(--spacing-lg);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+/* ── AI Tools grid ───────────────────────────── */
+
+.aisection__tools-grid {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.ai-tool-card {
+  padding: var(--spacing-lg);
+  transition:
+    transform var(--transition-base),
+    border-color var(--transition-base),
+    box-shadow var(--transition-base);
+}
+
+.ai-tool-card__header {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+}
+
+.ai-tool-card__icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: var(--radius-sm);
+  background: rgba(0, 212, 255, 0.10);
+  color: var(--accent-blue);
+  flex-shrink: 0;
+}
+
+.ai-tool-card__name {
+  font-size: var(--text-md);
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.ai-tool-card__description {
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  line-height: 1.6;
+  max-width: none;
+  margin: 0;
+}
+
+/* ── Practical applications list ─────────────── */
+
+.aisection__app-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+  list-style: none;
+}
+
+.ai-app-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  background: rgba(0, 212, 255, 0.07);
+  border: 1px solid var(--border-accent);
+  border-radius: var(--radius-full);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  color: var(--accent-cyan);
+  letter-spacing: 0.04em;
+  transition:
+    background var(--transition-base),
+    border-color var(--transition-base),
+    color var(--transition-base),
+    transform var(--transition-fast);
+  cursor: default;
+}
+
+.ai-app-chip:hover {
+  background: rgba(0, 212, 255, 0.14);
+  border-color: var(--border-glow);
+  color: var(--accent-blue);
+  transform: translateY(-2px);
+}
+
+.ai-app-chip__icon {
+  color: var(--accent-blue);
+  flex-shrink: 0;
+}
+
+/* ── Responsive ──────────────────────────────── */
+
+@media (max-width: 1023px) {
+  .aisection__body {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (max-width: 767px) {
+  .aisection__quote {
+    padding: var(--spacing-lg);
+    font-size: var(--text-lg);
+  }
+
+  .aisection__diagram-wrapper {
+    padding: var(--spacing-md);
+  }
+}

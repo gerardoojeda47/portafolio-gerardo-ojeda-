@@ -1,0 +1,203 @@
+/* Experience.css — Validates: Requirements 9.1–9.5 */
+
+.experience {
+  background: var(--bg-surface);
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-2xl);
+  padding-left: var(--spacing-xl);
+}
+
+.timeline::before {
+  content: '';
+  position: absolute;
+  left: 0.75rem;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: linear-gradient(
+    to bottom,
+    var(--accent-blue),
+    var(--accent-violet),
+    transparent
+  );
+}
+
+.timeline-entry {
+  position: relative;
+  display: grid;
+  gap: var(--spacing-md);
+}
+
+.timeline-entry__marker {
+  position: absolute;
+  left: calc(-1 * var(--spacing-xl) + 0.25rem);
+  top: 1.25rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-full);
+  background: var(--bg-base);
+  border: 2px solid var(--accent-blue);
+  color: var(--accent-blue);
+  z-index: 1;
+}
+
+.timeline-entry__card {
+  padding: var(--spacing-xl);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
+}
+
+.timeline-entry__header {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.timeline-entry__company-row {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+  color: var(--accent-blue);
+}
+
+.timeline-entry__company {
+  font-size: var(--text-lg);
+  color: var(--text-primary);
+}
+
+.timeline-entry__role {
+  font-size: var(--text-md);
+  color: var(--accent-cyan);
+  font-weight: 600;
+}
+
+.timeline-entry__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem;
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.timeline-entry__dot {
+  opacity: 0.5;
+}
+
+.timeline-entry__highlight {
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--radius-md);
+  background: rgba(139, 92, 246, 0.12);
+  border: 1px solid rgba(139, 92, 246, 0.25);
+  font-size: var(--text-sm);
+  color: var(--accent-violet);
+  line-height: 1.5;
+}
+
+.timeline-entry__responsibilities {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xs);
+}
+
+.timeline-entry__responsibilities li {
+  position: relative;
+  padding-left: 1.1rem;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+}
+
+.timeline-entry__responsibilities li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: var(--accent-blue);
+  font-family: var(--font-mono);
+}
+
+@media (min-width: 1024px) {
+  .timeline {
+    padding-left: 0;
+    max-width: 900px;
+    margin-inline: auto;
+  }
+
+  .timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .timeline-entry {
+    width: 50%;
+    padding-inline: var(--spacing-xl);
+  }
+
+  .timeline-entry--left {
+    align-self: flex-start;
+    padding-right: var(--spacing-2xl);
+    padding-left: 0;
+  }
+
+  .timeline-entry--right {
+    align-self: flex-end;
+    padding-left: var(--spacing-2xl);
+    padding-right: 0;
+  }
+
+  .timeline-entry--left .timeline-entry__marker {
+    left: auto;
+    right: -0.85rem;
+  }
+
+  .timeline-entry--right .timeline-entry__marker {
+    left: -0.85rem;
+    right: auto;
+  }
+}
+
+@media (max-width: 1023px) {
+  .timeline-entry--left,
+  .timeline-entry--right {
+    width: 100%;
+  }
+}
+
+/* ── Clickable timeline entry ─────────────────────────────────────────────── */
+
+.timeline-entry--clickable {
+  cursor: pointer;
+}
+
+.timeline-entry--clickable .timeline-entry__card {
+  transition: border-color 0.2s, box-shadow 0.2s, transform 0.2s;
+}
+
+.timeline-entry--clickable:hover .timeline-entry__card,
+.timeline-entry--clickable:focus-visible .timeline-entry__card {
+  border-color: rgba(99, 102, 241, 0.5);
+  box-shadow: 0 0 20px rgba(99, 102, 241, 0.15);
+  transform: translateY(-2px);
+}
+
+.timeline-entry--clickable:focus-visible {
+  outline: 2px solid var(--color-accent, #6366f1);
+  outline-offset: 4px;
+  border-radius: 12px;
+}
+
+.timeline-entry__cta {
+  margin-top: 0.75rem;
+  font-size: 0.8125rem;
+  color: var(--color-accent, #6366f1);
+  opacity: 0.7;
+  text-align: right;
+}
