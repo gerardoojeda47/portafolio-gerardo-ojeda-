@@ -5,6 +5,7 @@ import { fileURLToPath, URL } from 'node:url'
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: '/portafolio-gerardo-ojeda-/',
   plugins: [react()],
   resolve: {
     alias: {
