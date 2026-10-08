@@ -92,18 +92,22 @@
 }
 
 .hero__avatar {
-  width: 96px;
-  height: 96px;
+  width: 120px;
+  height: 120px;
   border-radius: 50%;
   object-fit: cover;
-  border: 2px solid var(--border-accent);
-  box-shadow: 0 0 24px rgba(0, 212, 255, 0.3), var(--shadow-card);
+  object-position: center top;
+  border: 3px solid var(--accent-blue);
+  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.15), 0 0 28px rgba(0, 212, 255, 0.35), var(--shadow-card);
   transition: box-shadow var(--transition-base), border-color var(--transition-base);
+  display: block;
+  background: var(--bg-surface);
+  filter: brightness(1.15) contrast(1.05);
 }
 
 .hero__avatar:hover {
-  box-shadow: 0 0 40px rgba(0, 212, 255, 0.5), var(--shadow-lift);
-  border-color: var(--border-glow);
+  box-shadow: 0 0 0 5px rgba(0, 212, 255, 0.25), 0 0 44px rgba(0, 212, 255, 0.55), var(--shadow-lift);
+  border-color: var(--accent-cyan);
 }
 
 /* ── CTA buttons row ──────────────────────────────────────── */
