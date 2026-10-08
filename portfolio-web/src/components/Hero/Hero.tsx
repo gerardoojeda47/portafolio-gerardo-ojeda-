@@ -15,7 +15,7 @@ import { useCallback } from 'react'
 import { motion, type Variants } from 'framer-motion'
 import { ArrowDown, Download, GitBranch, Mail } from 'lucide-react'
 import { TerminalWindow } from './TerminalWindow'
-import profilePhoto from '@/assets/hero.png'
+import profilePhoto from '@/assets/profile.jpg'
 import './Hero.css'
 
 // ─── Animation variants ───────────────────────────────────────────────────────
