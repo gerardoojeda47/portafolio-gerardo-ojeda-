@@ -198,17 +198,23 @@ export function Hero() {
             {'<'}Software Developer{' />'}
           </motion.p>
 
-          {/* Profile photo */}
+          {/* Profile photo con animación */}
           <motion.div
             className="hero__avatar-wrapper"
-            variants={itemVariants}
+            initial={{ opacity: 0, scale: 0.6 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.6, ease: 'backOut', delay: 0.2 }}
           >
+            {/* Anillo giratorio de gradiente */}
+            <div className="hero__avatar-ring" aria-hidden="true" />
+            {/* Anillo secundario contra-rotante */}
+            <div className="hero__avatar-ring hero__avatar-ring--reverse" aria-hidden="true" />
             <img
               src={profilePhoto}
               alt="Foto de perfil de Gerardo Ojeda Riascos"
               className="hero__avatar"
-              width={96}
-              height={96}
+              width={150}
+              height={150}
             />
           </motion.div>
 

@@ -86,28 +86,116 @@
 /* ── Avatar / Profile photo ───────────────────────────────── */
 
 .hero__avatar-wrapper {
-  display: flex;
+  position: relative;
+  display: inline-flex;
   align-items: center;
-  margin-bottom: var(--spacing-sm);
+  justify-content: center;
+  width: 168px;
+  height: 168px;
+  margin-bottom: var(--spacing-md);
 }
 
+/* Anillo giratorio principal — gradiente cónico azul/violeta/cyan */
+.hero__avatar-ring {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: conic-gradient(
+    from 0deg,
+    var(--accent-blue),
+    var(--accent-violet),
+    var(--accent-cyan),
+    var(--accent-blue)
+  );
+  animation: avatar-spin 3s linear infinite;
+  /* Padding visual — el "grosor" del anillo */
+  padding: 3px;
+  /* Usamos mask para que solo se vea el borde */
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* Anillo secundario más delgado, contra-rotante */
+.hero__avatar-ring--reverse {
+  inset: -5px;
+  background: conic-gradient(
+    from 180deg,
+    transparent 60%,
+    var(--accent-cyan) 75%,
+    transparent 90%
+  );
+  padding: 1.5px;
+  animation: avatar-spin-reverse 4s linear infinite;
+  opacity: 0.7;
+}
+
+/* Foto */
 .hero__avatar {
-  width: 120px;
-  height: 120px;
+  position: relative;
+  z-index: 2;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
-  border: 3px solid var(--accent-blue);
-  box-shadow: 0 0 0 4px rgba(0, 212, 255, 0.15), 0 0 28px rgba(0, 212, 255, 0.35), var(--shadow-card);
-  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+  border: 3px solid var(--bg-base);
   display: block;
-  background: var(--bg-surface);
-  filter: brightness(1.15) contrast(1.05);
+  filter: brightness(1.2) contrast(1.05) saturate(1.1);
+  animation: avatar-glow-pulse 3s ease-in-out infinite;
 }
 
-.hero__avatar:hover {
-  box-shadow: 0 0 0 5px rgba(0, 212, 255, 0.25), 0 0 44px rgba(0, 212, 255, 0.55), var(--shadow-lift);
-  border-color: var(--accent-cyan);
+/* Glow pulsante detrás de la foto */
+.hero__avatar-wrapper::after {
+  content: '';
+  position: absolute;
+  inset: 4px;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(0, 212, 255, 0.25),
+    transparent 70%
+  );
+  animation: avatar-glow-pulse 3s ease-in-out infinite;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Keyframes */
+@keyframes avatar-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes avatar-spin-reverse {
+  from { transform: rotate(360deg); }
+  to   { transform: rotate(0deg); }
+}
+
+@keyframes avatar-glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 18px rgba(0, 212, 255, 0.35), 0 0 40px rgba(139, 92, 246, 0.2);
+  }
+  50% {
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.6), 0 0 60px rgba(139, 92, 246, 0.4);
+  }
+}
+
+/* Respeta prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero__avatar-ring,
+  .hero__avatar-ring--reverse {
+    animation: none;
+    background: var(--accent-blue);
+  }
+  .hero__avatar {
+    animation: none;
+  }
+  .hero__avatar-wrapper::after {
+    animation: none;
+  }
 }
 
 /* ── CTA buttons row ──────────────────────────────────────── */
