@@ -25,6 +25,8 @@
   gap: var(--spacing-2xl);
   width: 100%;
   padding-block: var(--spacing-section);
+  /* Evita overflow horizontal en móvil */
+  overflow-x: hidden;
 }
 
 /* ── Content column ───────────────────────────────────────── */
@@ -33,8 +35,9 @@
   display: flex;
   flex-direction: column;
   gap: var(--spacing-md);
-  max-width: 680px;
+  /* En móvil ocupa todo el ancho disponible */
   width: 100%;
+  min-width: 0;
 }
 
 /* ── Eyebrow label ────────────────────────────────────────── */
@@ -90,9 +93,11 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 168px;
-  height: 168px;
+  /* Tamaño fluido: 120px en móvil → 168px en desktop */
+  width: clamp(120px, 18vw, 168px);
+  height: clamp(120px, 18vw, 168px);
   margin-bottom: var(--spacing-md);
+  flex-shrink: 0;
 }
 
 /* Anillo giratorio principal — gradiente cónico azul/violeta/cyan */
@@ -108,9 +113,7 @@
     var(--accent-blue)
   );
   animation: avatar-spin 3s linear infinite;
-  /* Padding visual — el "grosor" del anillo */
   padding: 3px;
-  /* Usamos mask para que solo se vea el borde */
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);
@@ -132,12 +135,12 @@
   opacity: 0.7;
 }
 
-/* Foto */
+/* Foto — tamaño fluido igual al wrapper menos el espacio del anillo */
 .hero__avatar {
   position: relative;
   z-index: 2;
-  width: 150px;
-  height: 150px;
+  width: calc(clamp(120px, 18vw, 168px) - 18px);
+  height: calc(clamp(120px, 18vw, 168px) - 18px);
   border-radius: 50%;
   object-fit: cover;
   object-position: center top;
@@ -208,22 +211,9 @@
 }
 
 .hero__cta {
-  /* Inherits .btn + variant classes from global.css */
   padding: 0.7rem 1.4rem;
   font-size: var(--text-sm);
   flex: 0 0 auto;
-}
-
-@media (max-width: 480px) {
-  .hero__ctas {
-    flex-direction: column;
-    width: 100%;
-  }
-
-  .hero__cta {
-    width: 100%;
-    justify-content: center;
-  }
 }
 
 /* ── Scroll hint ──────────────────────────────────────────── */
@@ -385,6 +375,42 @@
    Responsive breakpoints
    ============================================================ */
 
+/* Móvil pequeño: hasta 480px */
+@media (max-width: 480px) {
+  .hero__name {
+    font-size: clamp(2.2rem, 12vw, 3rem);
+    word-break: break-word;
+  }
+
+  .hero__ctas {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero__cta {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Terminal se oculta en pantallas muy pequeñas para dar espacio */
+  .hero__terminal-wrapper {
+    display: none;
+  }
+}
+
+/* Móvil medio: 481px–767px */
+@media (min-width: 481px) and (max-width: 767px) {
+  .hero__name {
+    font-size: clamp(2.5rem, 10vw, 3.5rem);
+  }
+
+  /* Terminal aparece pero ocupa todo el ancho */
+  .hero__terminal-wrapper {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 /* Tablet: 768px+ — two-column layout */
 @media (min-width: 768px) {
   .hero__inner {
@@ -396,19 +422,25 @@
 
   .hero__content {
     flex: 1 1 0;
+    max-width: 600px;
     min-width: 0;
   }
 
   .hero__terminal-wrapper {
     flex: 0 0 auto;
-    width: clamp(300px, 42%, 520px);
+    width: clamp(280px, 40%, 500px);
+    max-width: 500px;
   }
 }
 
 /* Desktop: 1024px+ */
 @media (min-width: 1024px) {
-  .hero__name {
-    font-size: clamp(4rem, 6vw, 5.5rem);
+  .hero__content {
+    max-width: 640px;
+  }
+
+  .hero__terminal-wrapper {
+    width: clamp(340px, 42%, 520px);
   }
 
   .hero__cta {
@@ -419,6 +451,10 @@
 
 /* Wide: 1280px+ */
 @media (min-width: 1280px) {
+  .hero__content {
+    max-width: 680px;
+  }
+
   .hero__terminal-wrapper {
     width: 520px;
   }
