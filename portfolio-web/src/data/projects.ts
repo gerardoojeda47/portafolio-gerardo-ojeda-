@@ -104,7 +104,64 @@ export const projects: Project[] = [
     githubUrl: undefined,
   },
 
-  // ── Proyecto 2: AI Delivery Assistant ────────────────────────────────────
+  // ── Proyecto 2: RutasApp ─────────────────────────────────────────────────
+  {
+    id: 'rutasapp',
+    title: 'RutasApp',
+    status: 'completed',
+    statusLabel: 'Completado · 2024',
+    year: '2024',
+    description:
+      'Aplicación móvil para gestión y consulta de rutas de transporte urbano. Permite explorar rutas disponibles, consultar paradas y obtener información de recorridos en tiempo real.',
+    technologies: ['Flutter', 'Dart', 'Mobile'],
+    features: [
+      'Listado y exploración de rutas de transporte',
+      'Consulta de paradas por ruta',
+      'Interfaz mobile-first con Flutter',
+      'Navegación fluida entre pantallas',
+    ],
+    githubUrl: 'https://github.com/gerardoojeda47/rutasapp',
+  },
+
+  // ── Proyecto 3: App Móvil Autos ──────────────────────────────────────────
+  {
+    id: 'appmovilautos',
+    title: 'App Móvil Autos',
+    status: 'completed',
+    statusLabel: 'Completado · 2024',
+    year: '2024',
+    description:
+      'Aplicación móvil para exploración y catálogo de automóviles. Incluye listado de vehículos con detalles, filtros de búsqueda y visualización de características.',
+    technologies: ['Flutter', 'Dart', 'Mobile'],
+    features: [
+      'Catálogo de autos con galería de imágenes',
+      'Filtros de búsqueda por categoría',
+      'Pantalla de detalle por vehículo',
+      'Diseño responsive para distintos tamaños de pantalla',
+    ],
+    githubUrl: 'https://github.com/gerardoojeda47/appmovilautos',
+  },
+
+  // ── Proyecto 4: Página Web Rutas ─────────────────────────────────────────
+  {
+    id: 'paginawedrutas',
+    title: 'Página Web Rutas',
+    status: 'completed',
+    statusLabel: 'Completado · 2024',
+    year: '2024',
+    description:
+      'Versión web del sistema de consulta de rutas de transporte. Interfaz responsive que permite a los usuarios explorar recorridos y paradas directamente desde el navegador.',
+    technologies: ['HTML', 'CSS', 'JavaScript'],
+    features: [
+      'Consulta de rutas desde el navegador',
+      'Diseño responsive para móvil y desktop',
+      'Interfaz clara e intuitiva',
+      'Sin dependencias externas — HTML/CSS/JS puro',
+    ],
+    githubUrl: 'https://github.com/gerardoojeda47/paginawedrutas',
+  },
+
+  // ── Proyecto 5: AI Delivery Assistant ────────────────────────────────────
   {
     id: 'ai-delivery-assistant',
     title: 'AI Delivery Assistant',

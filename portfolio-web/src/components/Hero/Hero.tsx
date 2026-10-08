@@ -15,6 +15,7 @@ import { useCallback } from 'react'
 import { motion, type Variants } from 'framer-motion'
 import { ArrowDown, Download, GitBranch, Mail } from 'lucide-react'
 import { TerminalWindow } from './TerminalWindow'
+import profilePhoto from '@/assets/hero.png'
 import './Hero.css'
 
 // ─── Animation variants ───────────────────────────────────────────────────────
@@ -196,6 +197,20 @@ export function Hero() {
           >
             {'<'}Software Developer{' />'}
           </motion.p>
+
+          {/* Profile photo */}
+          <motion.div
+            className="hero__avatar-wrapper"
+            variants={itemVariants}
+          >
+            <img
+              src={profilePhoto}
+              alt="Foto de perfil de Gerardo Ojeda Riascos"
+              className="hero__avatar"
+              width={96}
+              height={96}
+            />
+          </motion.div>
 
           {/* Full name — Req 3.1 */}
           <motion.h1

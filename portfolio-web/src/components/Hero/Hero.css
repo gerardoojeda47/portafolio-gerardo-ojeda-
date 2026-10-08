@@ -83,6 +83,29 @@
   margin: 0;
 }
 
+/* ── Avatar / Profile photo ───────────────────────────────── */
+
+.hero__avatar-wrapper {
+  display: flex;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+}
+
+.hero__avatar {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--border-accent);
+  box-shadow: 0 0 24px rgba(0, 212, 255, 0.3), var(--shadow-card);
+  transition: box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.hero__avatar:hover {
+  box-shadow: 0 0 40px rgba(0, 212, 255, 0.5), var(--shadow-lift);
+  border-color: var(--border-glow);
+}
+
 /* ── CTA buttons row ──────────────────────────────────────── */
 
 .hero__ctas {
